@@ -12,51 +12,33 @@
 #include <map>
 #include <array>
 #include "State.h"
+#include <stack> 
 
 using namespace std;
 
+//Functions
 string ArrayToString(int arr[][3]);
+void read_default_state();
+int read_search_mode();
+int run_search(int );
+int run_uninformed_bfs();
+int run_interactive_deepening_search();
+int run_a_star_mistilement();
+int run_a_star_manhattan();
 
+//Global variables
+//int init_state_for_test[3][3]  = {1,2,3,0,4,5,6,7,8};
+int init_state_for_test[3][3] = {7,2,4,5,0,6,8,3,1};
 int State::goal_state[][3] = {0,1,2,3,4,5,6,7,8};
-
+int init_state[3][3];
 map<string, bool> visit_map;
 queue<State> state_queue;
+stack<State> state_stack;
 
 int main(int argc, const char * argv[]) {
-    bool lazy = true;
-
-    int init_state[3][3];
-    int init_state_for_test[3][3] = {7,2,4,5,0,6,8,3,1};
-//    int init_state_for_test[3][3]  = {1,2,3,0,4,5,6,7,8};
-    
-    cout << "Please input 9 numbers as the initial state (empty denoted as 0):\n";
-    for (int i=0; i<3; i++)
-        for (int j=0; j<3; j++)
-            if (lazy){
-                init_state[i][j] = init_state_for_test[i][j];
-                cout << init_state[i][j];
-            }
-            else
-                cin >> init_state[i][j];
-    cout << endl;
-    
-    State init_state_object = State(init_state);
-
-    
-    state_queue.push(init_state_object);
-    while (!state_queue.empty()){
-        State current_state_obj = state_queue.front();
-        state_queue.pop();
-        
-        if (current_state_obj.check_goal_state() == true)
-            return current_state_obj.get_steps();
-        else{
-            visit_map[current_state_obj.get_id()] = true;
-            current_state_obj.generate_candidate();
-        }
-    }
-    
-    DEBUG_PRINT("Queue exhausted..\n");
+    read_default_state();
+    int mode = read_search_mode();
+    cout << "Number of steps used: " << run_search(mode) << endl;
     return 0;
     
 }
@@ -68,3 +50,87 @@ string ArrayToString(int arr[][3]){
             str += to_string(arr[i][j]);
     return str;
 }
+
+void read_state(){
+    cout << "Please input 9 numbers as the initial state (empty denoted as 0):\n";
+    for (int i=0; i<3; i++)
+        for (int j=0; j<3; j++)
+            cin >> init_state[i][j];
+}
+
+void read_default_state(){
+    for (int i=0; i<3; i++)
+        for (int j=0; j<3; j++){
+            init_state[i][j] = init_state_for_test[i][j];
+            DEBUG_PRINT(init_state[i][j]);
+        }
+    cout << endl;
+}
+
+int read_search_mode(){
+    int mode;
+    cout << "Please select a programme to run" <<endl;
+    cout << "1: Uninformed breadth-first search" << endl;
+    cout << "2: Iterative Deepening search" << endl;
+    cout << "3: A* with misplacement as heuristic" << endl;
+    cout << "4: A* with Manhattan distance as heuristic" << endl;
+    cout << "I choose: ";
+    cin >> mode;
+    return mode;
+}
+
+int run_search(int mode){
+    switch (mode) {
+        case UNINFORMED_BFS_MODE: {return run_uninformed_bfs();}
+        case IDS_MODE: {return run_interactive_deepening_search();}
+        case A_MISTILE_MODE: {return run_a_star_mistilement();}
+        case A_MANHATTAN_MODE: {return run_a_star_manhattan();}
+        default: return 0;
+    }
+    
+}
+
+int run_uninformed_bfs(){
+    State init_state_object = State(init_state);
+    state_queue.push(init_state_object);
+    
+    while (!state_queue.empty()){
+        State current_state_obj = state_queue.front();
+        state_queue.pop();
+        
+        if (current_state_obj.check_goal_state() == true)
+            return current_state_obj.get_steps();
+        else{
+            visit_map[current_state_obj.get_id()] = true;
+            current_state_obj.generate_candidate(UNINFORMED_BFS_MODE);
+        }
+    }
+    DEBUG_PRINT("Queue exhausted..\n");
+    return 0;
+}
+
+int run_interactive_deepening_search(){
+    State init_state_object = State(init_state);
+    state_stack.push(init_state_object);
+    
+    while (!state_stack.empty()){
+        State current_state_obj = state_stack.top();
+        state_stack.pop();
+        
+        if (current_state_obj.check_goal_state() == true)
+            return current_state_obj.get_steps();
+        else{
+            visit_map[current_state_obj.get_id()] = true;
+            current_state_obj.generate_candidate(IDS_MODE);
+        }
+    }
+    DEBUG_PRINT("Stack exhausted..\n");
+    
+    return 0;
+}
+int run_a_star_mistilement(){
+    return 0;
+};
+int run_a_star_manhattan(){
+    return 0;
+};

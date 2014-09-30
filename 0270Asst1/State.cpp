@@ -8,14 +8,16 @@
 
 #include "State.h"
 #include "Move.h"
+#include "MoveFactory.h"
+
 State::State(){
     this->steps = 0;
     for (int i = 0; i < 3; i++)
         for (int j = 0; j<3; j++){
             this->current_state[i][j] = 0;
     }
-    x=0;
-    y=0;
+    this->x=0;
+    this->y=0;
 }
 
 State::State(int initial_state[][3], int steps){
@@ -24,8 +26,7 @@ State::State(int initial_state[][3], int steps){
         for (int j = 0; j<3; j++){
             this->current_state[i][j] = initial_state[i][j];
             if (initial_state[i][j] == 0)
-            {
-                x = i;
+            {   x = i;
                 y = j;
             }
         }
@@ -47,10 +48,11 @@ string State::get_id(){
     return ArrayToString(current_state);
 }
 
-void State::generate_candidate(){
+void State::generate_candidate(int mode){
     DEBUG_PRINT("Generating candidates..\n");
-    Move move = Move(*this);
-    move.generate_all_move();
+    MoveFactory move_factory = MoveFactory(mode);
+    Move* move = move_factory.generate_move(*this);
+    move->generate_all_move();
 }
 
 void State::swap_array(int x1, int y1, int x2, int y2){

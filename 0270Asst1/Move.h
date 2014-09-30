@@ -14,6 +14,7 @@
 using namespace std;
 
 class Move{
+protected:
     State current_state_obj;
     
 public:
@@ -21,8 +22,8 @@ public:
     
     void generate_all_move();
     int calculate_distance();
-    int do_calculate(int, int);
-    void add_to_queue();
+    virtual int do_calculate(int, int){ return 0;};
+    virtual void add_to_queue(){};
     bool is_legal(int x, int y);
 };
 

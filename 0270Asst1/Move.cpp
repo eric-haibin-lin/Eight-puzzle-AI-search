@@ -14,6 +14,7 @@ Move::Move(State new_state){
 }
 
 void Move::generate_all_move(){
+    DEBUG_PRINT("Generaing all moves..\n");
     int x = current_state_obj.get_x();
     int y = current_state_obj.get_y();
     
@@ -47,24 +48,6 @@ int Move::calculate_distance(){
             total_distance += do_calculate(i,j);
     return total_distance;
 }
-
-int Move::do_calculate(int x, int y){
-    return 1;
-}
-
-void Move::add_to_queue(){
-    DEBUG_PRINT("Preparing for adding new child..\n");
-    string key = current_state_obj.get_id();
-    if (visit_map.count(key)) {
-        DEBUG_PRINT("Child exists! Abort adding\n");
-        return;
-    }
-    State new_state = current_state_obj;
-    new_state.increase_step();
-    state_queue.push(new_state);
-    DEBUG_PRINT("New child added.\n");
-}
-
 
 bool Move::is_legal(int x, int y){
     if (x >= 0 & x <=2 & y >=0 & y <=2) return true;

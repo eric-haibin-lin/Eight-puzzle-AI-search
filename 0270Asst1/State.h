@@ -13,14 +13,21 @@
 #include <string>
 #include <map>
 #include <queue>
+
 using namespace std;
 
-#define DEBUG_MODE false
+#define DEBUG_MODE true
+#define UNINFORMED_BFS_MODE 1
+#define IDS_MODE 2
+#define A_MISTILE_MODE 3
+#define A_MANHATTAN_MODE 4
+
 #if (DEBUG_MODE)
 #define DEBUG_PRINT(str) std::cout << str
 #else
 #define DEBUG_PRINT(str) ;
 #endif
+
 
 class State {
     
@@ -37,7 +44,7 @@ public:
     State();
     State(int [][3], int = 0);
     bool check_goal_state();
-    void generate_candidate();
+    void generate_candidate(int = 0);
     int get_steps();
     string get_id();
     int get_x(){return x;};
