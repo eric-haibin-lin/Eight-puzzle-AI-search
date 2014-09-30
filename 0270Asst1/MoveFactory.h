@@ -13,6 +13,8 @@
 #include "Move.h"
 #include "State.h"
 #include "BFSMove.h"
+#include "IDSMove.h"
+
 
 using namespace std;
 
@@ -20,7 +22,7 @@ class MoveFactory{
     int mode;
 public:
     MoveFactory(int);
-    Move* generate_move(State);
+    Move* generate_move(State, int = 0);
 };
 
 #endif /* defined(___270Asst1__MoveFactory__) */

@@ -110,22 +110,31 @@ int run_uninformed_bfs(){
 }
 
 int run_interactive_deepening_search(){
-    State init_state_object = State(init_state);
-    state_stack.push(init_state_object);
-    
-    while (!state_stack.empty()){
-        State current_state_obj = state_stack.top();
-        state_stack.pop();
+
+    int depth = 1;
+    while (true){
+        State init_state_object = State(init_state);
+        state_stack.push(init_state_object);
         
-        if (current_state_obj.check_goal_state() == true)
-            return current_state_obj.get_steps();
-        else{
-            visit_map[current_state_obj.get_id()] = true;
-            current_state_obj.generate_candidate(IDS_MODE);
+        while (!state_stack.empty()){
+            State current_state_obj = state_stack.top();
+            state_stack.pop();
+            
+            if (current_state_obj.check_goal_state() == true)
+                return current_state_obj.get_steps();
+            else{
+                visit_map[current_state_obj.get_id()] = true;
+                current_state_obj.generate_candidate(IDS_MODE, depth);
+            }
         }
+        visit_map.clear();
+        depth++;
+        DEBUG_PRINT("current depth:");
+        DEBUG_PRINT(depth);
+        DEBUG_PRINT(endl);
     }
-    DEBUG_PRINT("Stack exhausted..\n");
     
+    DEBUG_PRINT("Stack exhausted..\n");
     return 0;
 }
 int run_a_star_mistilement(){

@@ -13,13 +13,16 @@ using namespace std;
 MoveFactory::MoveFactory(int mode){
     this->mode  = mode;
 };
-Move* MoveFactory::generate_move(State state_obj){
+Move* MoveFactory::generate_move(State state_obj, int depth){
     switch (mode) {
         case UNINFORMED_BFS_MODE:{
             BFSMove* move = new BFSMove(state_obj);
             return move;
         }
-        case IDS_MODE:
+        case IDS_MODE:{
+            IDSMove* move = new IDSMove(state_obj, depth);
+            return move;
+        }
         case A_MISTILE_MODE:
         case A_MANHATTAN_MODE:
         default:{

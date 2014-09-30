@@ -12,6 +12,7 @@
 		DD38326C19D9AA1100CC668B /* Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD38326A19D9AA1100CC668B /* Move.cpp */; };
 		DDF4F42819DACA7F001901A3 /* MoveFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDF4F42619DACA7F001901A3 /* MoveFactory.cpp */; };
 		DDF4F42B19DACDAD001901A3 /* BFSMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDF4F42919DACDAD001901A3 /* BFSMove.cpp */; };
+		DDF4F42E19DAD3AA001901A3 /* IDSMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDF4F42C19DAD3AA001901A3 /* IDSMove.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		DDF4F42719DACA7F001901A3 /* MoveFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveFactory.h; sourceTree = "<group>"; };
 		DDF4F42919DACDAD001901A3 /* BFSMove.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFSMove.cpp; path = ../BFSMove.cpp; sourceTree = "<group>"; };
 		DDF4F42A19DACDAD001901A3 /* BFSMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFSMove.h; path = ../BFSMove.h; sourceTree = "<group>"; };
+		DDF4F42C19DAD3AA001901A3 /* IDSMove.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IDSMove.cpp; sourceTree = "<group>"; };
+		DDF4F42D19DAD3AA001901A3 /* IDSMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDSMove.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 				DD38326819D9A26F00CC668B /* State.h */,
 				DD38326A19D9AA1100CC668B /* Move.cpp */,
 				DD38326B19D9AA1100CC668B /* Move.h */,
+				DDF4F42C19DAD3AA001901A3 /* IDSMove.cpp */,
+				DDF4F42D19DAD3AA001901A3 /* IDSMove.h */,
 				DDF4F42619DACA7F001901A3 /* MoveFactory.cpp */,
 				DDF4F42719DACA7F001901A3 /* MoveFactory.h */,
 			);
@@ -141,6 +146,7 @@
 				DD38326C19D9AA1100CC668B /* Move.cpp in Sources */,
 				DDF4F42B19DACDAD001901A3 /* BFSMove.cpp in Sources */,
 				DD38326119D9747800CC668B /* main.cpp in Sources */,
+				DDF4F42E19DAD3AA001901A3 /* IDSMove.cpp in Sources */,
 				DD38326919D9A26F00CC668B /* State.cpp in Sources */,
 				DDF4F42819DACA7F001901A3 /* MoveFactory.cpp in Sources */,
 			);

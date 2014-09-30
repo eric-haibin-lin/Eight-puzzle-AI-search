@@ -48,10 +48,10 @@ string State::get_id(){
     return ArrayToString(current_state);
 }
 
-void State::generate_candidate(int mode){
+void State::generate_candidate(int mode, int depth){
     DEBUG_PRINT("Generating candidates..\n");
     MoveFactory move_factory = MoveFactory(mode);
-    Move* move = move_factory.generate_move(*this);
+    Move* move = move_factory.generate_move(*this, depth);
     move->generate_all_move();
 }
 

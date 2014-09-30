@@ -13,10 +13,11 @@
 #include <string>
 #include <map>
 #include <queue>
+#include <stack>
 
 using namespace std;
 
-#define DEBUG_MODE true
+#define DEBUG_MODE false
 #define UNINFORMED_BFS_MODE 1
 #define IDS_MODE 2
 #define A_MISTILE_MODE 3
@@ -44,7 +45,7 @@ public:
     State();
     State(int [][3], int = 0);
     bool check_goal_state();
-    void generate_candidate(int = 0);
+    void generate_candidate(int = 0, int = 0);
     int get_steps();
     string get_id();
     int get_x(){return x;};
@@ -56,6 +57,6 @@ public:
 extern queue<State> state_queue;
 extern string ArrayToString(int [][3]);
 extern map<string, bool> visit_map;
-
+extern stack<State> state_stack;
 
 #endif /* defined(___270Asst1__State__) */

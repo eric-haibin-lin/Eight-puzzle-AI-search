@@ -16,7 +16,6 @@ class BFSMove : public Move{
 
 public:
     BFSMove(State state_obj): Move(state_obj){};
-    int do_calculate(int, int);
     void add_to_queue();
 };
 

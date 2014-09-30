@@ -22,9 +22,9 @@ public:
     
     void generate_all_move();
     int calculate_distance();
-    virtual int do_calculate(int, int){ return 0;};
+    virtual int do_calculate(int, int){ return 1;};
     virtual void add_to_queue(){};
-    bool is_legal(int x, int y);
+    virtual bool is_legal(int x, int y);
 };
 
 extern queue<State> state_queue;
