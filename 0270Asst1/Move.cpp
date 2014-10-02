@@ -41,11 +41,12 @@ void Move::generate_all_move(){
     return;
 }
 
-int Move::calculate_distance(){
-    int total_distance;
+int Move::calculate_distance(State & state_obj){
+    int total_distance = 0;
     for (int i=0; i<3; i++)
         for (int j=0; j<3; j++)
-            total_distance += do_calculate(i,j);
+            total_distance += do_calculate(i,j, state_obj);
+    state_obj.set_cost(total_distance);
     return total_distance;
 }
 

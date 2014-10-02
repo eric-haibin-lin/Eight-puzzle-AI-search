@@ -16,8 +16,9 @@ State::State(){
         for (int j = 0; j<3; j++){
             this->current_state[i][j] = 0;
     }
-    this->x=0;
-    this->y=0;
+    this->x = 0;
+    this->y = 0;
+    this->cost = 0;
 }
 
 State::State(int initial_state[][3], int steps){

@@ -14,7 +14,7 @@
 #include "State.h"
 #include "BFSMove.h"
 #include "IDSMove.h"
-
+#include "AStarMistileMove.h"
 
 using namespace std;
 

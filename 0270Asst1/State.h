@@ -32,12 +32,14 @@ using namespace std;
 
 class State {
     
-    int current_state[3][3];
+
     int steps;
     int x;
     int y;
+    int cost;
     
 public:
+    int current_state[3][3];
     static int goal_state[3][3];
     int key;
     
@@ -48,15 +50,26 @@ public:
     void generate_candidate(int = 0, int = 0);
     int get_steps();
     string get_id();
-    int get_x(){return x;};
-    int get_y(){return y;};
+    int get_cost() const { return this->cost;};
+    void set_cost(int cost){ this->cost = cost;};
+    int get_x() const {return x;};
+    int get_y() const {return y;};
     void increase_step(){ this->steps ++;};
     void update_position(int new_x,int new_y);
+};
+
+struct GreaterThanByCost
+{
+    bool operator()(const State& lhs, const State& rhs) const
+    {
+        return lhs.get_cost() > rhs.get_cost();
+    }
 };
 
 extern queue<State> state_queue;
 extern string ArrayToString(int [][3]);
 extern map<string, bool> visit_map;
 extern stack<State> state_stack;
+extern priority_queue<State, std::vector<State>, GreaterThanByCost > state_priority_queue;
 
 #endif /* defined(___270Asst1__State__) */

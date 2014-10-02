@@ -13,6 +13,7 @@
 #include <array>
 #include "State.h"
 #include <stack> 
+#include <vector>
 
 using namespace std;
 
@@ -34,6 +35,9 @@ int init_state[3][3];
 map<string, bool> visit_map;
 queue<State> state_queue;
 stack<State> state_stack;
+priority_queue<State, std::vector<State>, GreaterThanByCost > state_priority_queue;
+
+
 
 int main(int argc, const char * argv[]) {
     read_default_state();
@@ -138,6 +142,22 @@ int run_interactive_deepening_search(){
     return 0;
 }
 int run_a_star_mistilement(){
+    State init_state_object = State(init_state);
+    state_priority_queue.push(init_state_object);
+    
+    while (!state_priority_queue.empty()){
+        State current_state_obj = state_priority_queue.top();
+        state_priority_queue.pop();
+        cout << current_state_obj.get_cost() << endl;
+        
+        if (current_state_obj.check_goal_state() == true)
+            return current_state_obj.get_steps();
+        else{
+            visit_map[current_state_obj.get_id()] = true;
+            current_state_obj.generate_candidate(A_MISTILE_MODE);
+        }
+    }
+    DEBUG_PRINT("Queue exhausted..\n");
     return 0;
 };
 int run_a_star_manhattan(){

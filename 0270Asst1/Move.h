@@ -21,8 +21,8 @@ public:
     Move(State);
     
     void generate_all_move();
-    int calculate_distance();
-    virtual int do_calculate(int, int){ return 1;};
+    int calculate_distance(State &);
+    virtual int do_calculate(int, int, State){return 0;};
     virtual void add_to_queue(){};
     virtual bool is_legal(int x, int y);
 };

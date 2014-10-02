@@ -23,7 +23,10 @@ Move* MoveFactory::generate_move(State state_obj, int depth){
             IDSMove* move = new IDSMove(state_obj, depth);
             return move;
         }
-        case A_MISTILE_MODE:
+        case A_MISTILE_MODE:{
+            AStarMistileMove* move = new AStarMistileMove(state_obj);
+            return move;
+        }
         case A_MANHATTAN_MODE:
         default:{
             Move* move = new Move(state_obj);
