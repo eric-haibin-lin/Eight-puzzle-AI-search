@@ -11,6 +11,7 @@
 		DD38326919D9A26F00CC668B /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD38326719D9A26F00CC668B /* State.cpp */; };
 		DD38326C19D9AA1100CC668B /* Move.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD38326A19D9AA1100CC668B /* Move.cpp */; };
 		DD9C552819DC4A57009A534F /* AStarMistileMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD9C552619DC4A57009A534F /* AStarMistileMove.cpp */; };
+		DDD67AF919DD8B6100E0B6DC /* AStarManhattanMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDD67AF719DD8B6100E0B6DC /* AStarManhattanMove.cpp */; };
 		DDF4F42819DACA7F001901A3 /* MoveFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDF4F42619DACA7F001901A3 /* MoveFactory.cpp */; };
 		DDF4F42B19DACDAD001901A3 /* BFSMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDF4F42919DACDAD001901A3 /* BFSMove.cpp */; };
 		DDF4F42E19DAD3AA001901A3 /* IDSMove.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDF4F42C19DAD3AA001901A3 /* IDSMove.cpp */; };
@@ -37,6 +38,8 @@
 		DD38326B19D9AA1100CC668B /* Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Move.h; sourceTree = "<group>"; };
 		DD9C552619DC4A57009A534F /* AStarMistileMove.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AStarMistileMove.cpp; sourceTree = "<group>"; };
 		DD9C552719DC4A57009A534F /* AStarMistileMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStarMistileMove.h; sourceTree = "<group>"; };
+		DDD67AF719DD8B6100E0B6DC /* AStarManhattanMove.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AStarManhattanMove.cpp; sourceTree = "<group>"; };
+		DDD67AF819DD8B6100E0B6DC /* AStarManhattanMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStarManhattanMove.h; sourceTree = "<group>"; };
 		DDF4F42619DACA7F001901A3 /* MoveFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveFactory.cpp; sourceTree = "<group>"; };
 		DDF4F42719DACA7F001901A3 /* MoveFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveFactory.h; sourceTree = "<group>"; };
 		DDF4F42919DACDAD001901A3 /* BFSMove.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFSMove.cpp; path = ../BFSMove.cpp; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				DDF4F42D19DAD3AA001901A3 /* IDSMove.h */,
 				DDF4F42619DACA7F001901A3 /* MoveFactory.cpp */,
 				DDF4F42719DACA7F001901A3 /* MoveFactory.h */,
+				DDD67AF719DD8B6100E0B6DC /* AStarManhattanMove.cpp */,
+				DDD67AF819DD8B6100E0B6DC /* AStarManhattanMove.h */,
 				DD9C552619DC4A57009A534F /* AStarMistileMove.cpp */,
 				DD9C552719DC4A57009A534F /* AStarMistileMove.h */,
 			);
@@ -153,6 +158,7 @@
 				DD9C552819DC4A57009A534F /* AStarMistileMove.cpp in Sources */,
 				DD38326119D9747800CC668B /* main.cpp in Sources */,
 				DDF4F42E19DAD3AA001901A3 /* IDSMove.cpp in Sources */,
+				DDD67AF919DD8B6100E0B6DC /* AStarManhattanMove.cpp in Sources */,
 				DD38326919D9A26F00CC668B /* State.cpp in Sources */,
 				DDF4F42819DACA7F001901A3 /* MoveFactory.cpp in Sources */,
 			);

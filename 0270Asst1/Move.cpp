@@ -42,7 +42,7 @@ void Move::generate_all_move(){
 }
 
 int Move::calculate_distance(State & state_obj){
-    int total_distance = 0;
+    int total_distance = state_obj.get_steps();
     for (int i=0; i<3; i++)
         for (int j=0; j<3; j++)
             total_distance += do_calculate(i,j, state_obj);

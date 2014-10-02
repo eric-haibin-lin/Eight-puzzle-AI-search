@@ -15,6 +15,7 @@
 #include "BFSMove.h"
 #include "IDSMove.h"
 #include "AStarMistileMove.h"
+#include "AStarManhattanMove.h"
 
 using namespace std;
 

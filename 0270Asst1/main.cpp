@@ -24,8 +24,7 @@ int read_search_mode();
 int run_search(int );
 int run_uninformed_bfs();
 int run_interactive_deepening_search();
-int run_a_star_mistilement();
-int run_a_star_manhattan();
+int run_a_star_search(int);
 
 //Global variables
 //int init_state_for_test[3][3]  = {1,2,3,0,4,5,6,7,8};
@@ -87,8 +86,8 @@ int run_search(int mode){
     switch (mode) {
         case UNINFORMED_BFS_MODE: {return run_uninformed_bfs();}
         case IDS_MODE: {return run_interactive_deepening_search();}
-        case A_MISTILE_MODE: {return run_a_star_mistilement();}
-        case A_MANHATTAN_MODE: {return run_a_star_manhattan();}
+        case A_MISTILE_MODE: {return run_a_star_search(A_MISTILE_MODE);}
+        case A_MANHATTAN_MODE: {return run_a_star_search(A_MANHATTAN_MODE);}
         default: return 0;
     }
     
@@ -141,25 +140,24 @@ int run_interactive_deepening_search(){
     DEBUG_PRINT("Stack exhausted..\n");
     return 0;
 }
-int run_a_star_mistilement(){
+int run_a_star_search(int search_mode){
     State init_state_object = State(init_state);
     state_priority_queue.push(init_state_object);
     
     while (!state_priority_queue.empty()){
         State current_state_obj = state_priority_queue.top();
         state_priority_queue.pop();
-        cout << current_state_obj.get_cost() << endl;
+        DEBUG_PRINT("New state object from priority queue with cost: ");
+        DEBUG_PRINT(current_state_obj.get_cost());
+        DEBUG_PRINT(endl);
         
         if (current_state_obj.check_goal_state() == true)
             return current_state_obj.get_steps();
         else{
             visit_map[current_state_obj.get_id()] = true;
-            current_state_obj.generate_candidate(A_MISTILE_MODE);
+            current_state_obj.generate_candidate(search_mode);
         }
     }
     DEBUG_PRINT("Queue exhausted..\n");
-    return 0;
-};
-int run_a_star_manhattan(){
     return 0;
 };
