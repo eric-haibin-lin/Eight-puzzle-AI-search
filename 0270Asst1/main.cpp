@@ -141,18 +141,27 @@ int run_interactive_deepening_search(){
     return 0;
 }
 int run_a_star_search(int search_mode){
+    int checked = 0;
     State init_state_object = State(init_state);
     state_priority_queue.push(init_state_object);
     
     while (!state_priority_queue.empty()){
+        checked ++;
         State current_state_obj = state_priority_queue.top();
         state_priority_queue.pop();
         DEBUG_PRINT("New state object from priority queue with cost: ");
         DEBUG_PRINT(current_state_obj.get_cost());
         DEBUG_PRINT(endl);
         
-        if (current_state_obj.check_goal_state() == true)
+        if (current_state_obj.check_goal_state() == true){
+            DEBUG_PRINT("Number of nodes checked:");
+            DEBUG_PRINT(checked);
+            DEBUG_PRINT(endl);
+            
             return current_state_obj.get_steps();
+            
+        }
+        
         else{
             visit_map[current_state_obj.get_id()] = true;
             current_state_obj.generate_candidate(search_mode);
